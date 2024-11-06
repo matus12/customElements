@@ -30,6 +30,7 @@
       try {
         CustomApp.init((config, context) => {
           console.log({config, context});
+          document.getElementById("content").value = context.projectId;
         });
 
       } catch (err) {
