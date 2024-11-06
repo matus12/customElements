@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <h2>Hello</h2>
+  <h2>ProjectId:</h2>
   <div id="content"></div>
   <script type="text/javascript">
 
@@ -30,7 +30,7 @@
       try {
         CustomApp.init((config, context) => {
           console.log({config, context});
-          document.getElementById("content").value = context.projectId;
+          document.getElementById("content").innerHTML = context.projectId;
         });
 
       } catch (err) {
