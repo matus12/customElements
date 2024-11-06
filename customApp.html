@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Test custom app</title>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="/css/kontent-ai-app-styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <script src="C:\repos\client\draft_client\public\js-api\custom-app\v1\custom-app.min.js"></script>
+
+</head>
+
+<body>
+  <h2>Hello</h2>
+  <div id="content"></div>
+  <script type="text/javascript">
+
+    function updateSize() {
+      // Updates the custom element height in the Kentico UI.
+      const height = Math.ceil($('html').height());
+      CustomElement.setHeight(height);
+    }
+
+    function updateDisabled(disabled) {
+      isDisabled = disabled;
+    }
+
+    function initCustomElement() {
+      try {
+        CustomApp.init((config, context) => {
+          console.log({config, context});
+        });
+
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    initCustomElement();
+  </script>
+</body>
+</html>
