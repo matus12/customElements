@@ -28,7 +28,14 @@
     <strong>User role ids:</strong>
     <span id="userRoleIds"></span>
   </div>
-  
+  <div>
+    <pre>
+      <code id="code">
+
+      </code>
+    </pre>
+  </div>
+
   <script type="text/javascript">
 
     function updateSize() {
@@ -50,6 +57,10 @@
           document.getElementById("userEmail").innerHTML = context.userEmail;
           document.getElementById("userRoleIds").innerHTML = context.userRoleIds;
         });
+
+        fetch('https://deliver.kontent.ai/2df8fe8c-3fa2-0092-457b-2edf17eb2907/items')
+          .then(response => response.json())
+          .then(json => document.getElementById("code").innerHTML = json);
 
       } catch (err) {
         console.error(err);
