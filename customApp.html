@@ -59,7 +59,7 @@
           projectId = context.projectId;
         });
 
-        const response = await fetch(`https://deliver.kontent.ai/${projectId}/items`);
+        const response = await fetch(`https://deliver.devkontentmasters.com/${projectId}/items`);
         const json = await response.json();
         document.getElementById("code").innerText = JSON.stringify(json, null, "\t");
       } catch (err) {
