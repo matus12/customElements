@@ -13,7 +13,13 @@
 
 <body>
   <h2>ProjectId:</h2>
-  <div id="content"></div>
+  <div id="projectId"></div>
+  <h2>ProjectId:</h2>
+  <div id="userId"></div>
+  <h2>ProjectId:</h2>
+  <div id="userEmail"></div>
+  <h2>ProjectId:</h2>
+  <div id="userRoleIds"></div>
   <script type="text/javascript">
 
     function updateSize() {
@@ -30,7 +36,10 @@
       try {
         CustomApp.init((config, context) => {
           console.log({config, context});
-          document.getElementById("content").innerHTML = context.projectId;
+          document.getElementById("projectId").innerHTML = context.projectId;
+          document.getElementById("userId").innerHTML = context.userId;
+          document.getElementById("userEmail").innerHTML = context.userEmail;
+          document.getElementById("userRoleIds").innerHTML = context.userRoleIds;
         });
 
       } catch (err) {
