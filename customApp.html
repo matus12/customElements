@@ -29,9 +29,8 @@
     <span id="userRoleIds"></span>
   </div>
   <div>
-    <pre>
+    <pre style="background-color:#eee">
       <code id="code">
-
       </code>
     </pre>
   </div>
@@ -48,7 +47,8 @@
       isDisabled = disabled;
     }
 
-    function initCustomElement() {
+    async function initCustomElement() {
+      let projectId = '';
       try {
         CustomApp.init((config, context) => {
           console.log({config, context});
@@ -56,12 +56,12 @@
           document.getElementById("userId").innerHTML = context.userId;
           document.getElementById("userEmail").innerHTML = context.userEmail;
           document.getElementById("userRoleIds").innerHTML = context.userRoleIds;
+          projectId = context.projectId;
         });
 
-        fetch('https://deliver.kontent.ai/2df8fe8c-3fa2-0092-457b-2edf17eb2907/items')
-          .then(response => response.json())
-          .then(json => document.getElementById("code").innerHTML = json);
-
+        const response = await fetch(`https://deliver.kontent.ai/${projectId}/items`);
+        const json = await response.json();
+        document.getElementById("code").innerText = JSON.stringify(json, null, "\t");
       } catch (err) {
         console.error(err);
       }
