@@ -13,8 +13,8 @@
 
 <body>
   <div>
-    <strong>Project id:</strong>
-    <span id="projectId"></span>
+    <strong>Environment id:</strong>
+    <span id="environmentId"></span>
   </div>
   <div>
     <strong>User id:</strong>
@@ -45,7 +45,7 @@
       try {
         CustomApp.init((config, context) => {
           console.log({config, context});
-          document.getElementById("projectId").innerHTML = context.projectId;
+          document.getElementById("environmentId").innerHTML = context.environmentId;
           document.getElementById("userId").innerHTML = context.userId;
           document.getElementById("userEmail").innerHTML = context.userEmail;
           document.getElementById("userRoleIds").innerHTML = context.userRoleIds;
