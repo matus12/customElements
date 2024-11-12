@@ -48,7 +48,8 @@
           document.getElementById("environmentId").innerHTML = context.environmentId;
           document.getElementById("userId").innerHTML = context.userId;
           document.getElementById("userEmail").innerHTML = context.userEmail;
-          document.getElementById("userRoleIds").innerHTML = context.userRoleIds;
+          const roles = context.userRoles.map(role => <div>role.codename</div>)
+          document.getElementById("userRoleIds").innerHTML = roles;
         });
       } catch (err) {
         console.error(err);
