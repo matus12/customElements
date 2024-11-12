@@ -2,61 +2,53 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <title>Test custom app</title>
-  <!-- Stylesheets -->
-  <link rel="stylesheet" type="text/css" href="https://matus12.github.io/customElements/css/kontent-ai-app-styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-  <script src="https://matus12.github.io/customElements/custom-app.min.js"></script>
+    <meta charset="UTF-8" />
+    <title>Test custom app</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="https://matus12.github.io/customElements/css/kontent-ai-app-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script src="https://matus12.github.io/customElements/custom-app.min.js"></script>
 
 </head>
 
 <body>
-  <div>
+<div>
     <strong>Environment id:</strong>
     <span id="environmentId"></span>
-  </div>
-  <div>
+</div>
+<div>
     <strong>User id:</strong>
     <span id="userId"></span>
-  </div>
-  <div>
+</div>
+<div>
     <strong>User email:</strong>
     <span id="userEmail"></span>
-  </div>
-  <div>
+</div>
+<div>
     <strong>User role ids:</strong>
     <span id="userRoleIds"></span>
-  </div>
+</div>
 
-  <script type="text/javascript">
-
-    function updateSize() {
-      // Updates the custom element height in the Kentico UI.
-      const height = Math.ceil($('html').height());
-      CustomElement.setHeight(height);
-    }
-
-    function updateDisabled(disabled) {
-      isDisabled = disabled;
-    }
-
-    async function initCustomElement() {
-      try {
-        CustomApp.init((config, context) => {
-          console.log({config, context});
-          document.getElementById("environmentId").innerHTML = context.environmentId;
-          document.getElementById("userId").innerHTML = context.userId;
-          document.getElementById("userEmail").innerHTML = context.userEmail;
-          const roles = context.userRoles.map(role => <div>role.codename</div>)
-          document.getElementById("userRoleIds").innerHTML = roles;
-        });
-      } catch (err) {
-        console.error(err);
-      }
+<script type="text/javascript">
+    function initCustomElement() {
+        try {
+            CustomApp.init((config, context) => {
+                console.log({config, context});
+                document.getElementById("environmentId").innerHTML = context.environmentId;
+                document.getElementById("userId").innerHTML = context.userId;
+                document.getElementById("userEmail").innerHTML = context.userEmail;
+                document.getElementById("userRoleIds").innerHTML = context.userRoles.map(role =>
+                    `<div>
+                        <div>Id: ${role.id}</div>
+                        <div>Codename: ${role.codename}</div>
+                    </div>`);
+            });
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     initCustomElement();
-  </script>
+</script>
 </body>
 </html>
