@@ -38,7 +38,6 @@
     function initCustomElement() {
         try {
             CustomApp.init((config, context) => {
-                console.log({config, context});
                 document.getElementById("environmentId").innerHTML = context.environmentId;
                 document.getElementById("userId").innerHTML = context.userId;
                 document.getElementById("userEmail").innerHTML = context.userEmail;
