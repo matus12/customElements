@@ -29,10 +29,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports.init = void 0;
+  _exports.initCustomApp = void 0;
   const customApp = new _CustomApp.CustomApp(new _CustomAppMessageSender.CustomAppMessageSender(Object.values(_CustomAppsApi.CustomAppHostMessageType)));
-  const init = () => customApp.init();
-  _exports.init = init;
+  const initCustomApp = () => customApp.init();
+  _exports.initCustomApp = initCustomApp;
 });
 
 /***/ }),
