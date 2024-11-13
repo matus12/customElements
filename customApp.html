@@ -37,7 +37,7 @@
 <script type="text/javascript">
     const initCustomElement = async () => {
         try {
-            const { config, context } = await CustomApp.init();
+            const { config, context } = await CustomApp.initCustomApp();
 
             document.getElementById("environmentId").innerHTML = context.environmentId;
             document.getElementById("userId").innerHTML = context.userId;
