@@ -37,19 +37,18 @@
 <script type="text/javascript">
     const initCustomElement = async () => {
         try {
-            const data = await CustomApp.init();
-            console.log({ data });
-            // CustomApp.init((config, context) => {
-            //     document.getElementById("environmentId").innerHTML = context.environmentId;
-            //     document.getElementById("userId").innerHTML = context.userId;
-            //     document.getElementById("userEmail").innerHTML = context.userEmail;
-            //     document.getElementById("userRoleIds").innerHTML = context.userRoles.map(role =>
-            //         `<div>
-            //             <div>Id: ${role.id}</div>
-            //             <div>Codename: ${role.codename}</div>
-            //         </div>`);
-            //     document.getElementById("code").innerHTML = JSON.stringify(config);
-            // });
+            const { config, context } = await CustomApp.init();
+
+            document.getElementById("environmentId").innerHTML = context.environmentId;
+            document.getElementById("userId").innerHTML = context.userId;
+            document.getElementById("userEmail").innerHTML = context.userEmail;
+            document.getElementById("userRoleIds").innerHTML = context.userRoles.map(role =>
+                `<div>
+                    <div>Id: ${role.id}</div>
+                    <div>Codename: ${role.codename}</div>
+                </div>`);
+            document.getElementById("code").innerHTML = JSON.stringify(config);
+
         } catch (err) {
             console.error(err);
         }
