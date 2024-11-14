@@ -34,11 +34,13 @@
     <code id="code"></code>
 </pre>
 
-<script type="text/javascript">
+<script type="module">
     import {initCustomApp} from "just-a-test-of-custom-apps/src";
 
     try {
         const {config, context} = await initCustomApp();
+
+        console.log({ config, context });
 
         document.getElementById("environmentId").innerHTML = context.environmentId;
         document.getElementById("userId").innerHTML = context.userId;
