@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Test custom app</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="https://matus12.github.io/customElements/css/kontent-ai-app-styles.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://matus12.github.io/customElements/css/kontent-ai-app-styles.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-    <script src="https://matus12.github.io/customElements/custom-app.min.js"></script>
 
 </head>
 
@@ -28,33 +28,31 @@
     <strong>User role ids:</strong>
     <span id="userRoleIds"></span>
 </div>
-<br />
+<br/>
 <strong>Config:</strong>
 <pre>
     <code id="code"></code>
 </pre>
 
 <script type="text/javascript">
-    const initCustomElement = async () => {
-        try {
-            const { config, context } = await CustomApp.initCustomApp();
+    import {initCustomApp} from "just-a-test-of-custom-apps/src";
 
-            document.getElementById("environmentId").innerHTML = context.environmentId;
-            document.getElementById("userId").innerHTML = context.userId;
-            document.getElementById("userEmail").innerHTML = context.userEmail;
-            document.getElementById("userRoleIds").innerHTML = context.userRoles.map(role =>
-                `<div>
+    try {
+        const {config, context} = await initCustomApp();
+
+        document.getElementById("environmentId").innerHTML = context.environmentId;
+        document.getElementById("userId").innerHTML = context.userId;
+        document.getElementById("userEmail").innerHTML = context.userEmail;
+        document.getElementById("userRoleIds").innerHTML = context.userRoles.map(role =>
+            `<div>
                     <div>Id: ${role.id}</div>
                     <div>Codename: ${role.codename}</div>
                 </div>`);
-            document.getElementById("code").innerHTML = JSON.stringify(config);
+        document.getElementById("code").innerHTML = JSON.stringify(config);
 
-        } catch (err) {
-            console.error(err);
-        }
+    } catch (err) {
+        console.error(err);
     }
-
-    initCustomElement();
 </script>
 </body>
 </html>
