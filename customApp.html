@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css"
           href="https://matus12.github.io/customElements/css/kontent-ai-app-styles.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/just-a-test-of-custom-apps@0.0.1/dist/src/index.js"></script>
 
 </head>
 
@@ -36,6 +35,8 @@
 </pre>
 
 <script type="module">
+    import { initCustomApp } from "https://matus12.github.io/customElements/main.js";
+
     try {
         const {config, context} = await initCustomApp();
 
